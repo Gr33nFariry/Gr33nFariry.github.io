@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--
+			Brittany Kelly
+			May 17, 2026
+			Creating a basic HTML file and implementing JavaScript for users
+			to interact with the page. My site will be a portfolio page being
+			built with the basics; About, Projects, and Contact pages. 	
+		-->
+		<meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Brittanys' Portfolio</title>
+		<style>
+			/*
+			Dark Mode Style
+			Toggled on <body> by UserInteraction.js using classList.toggle().*/
+			#dark-mode-bar button {
+				background: none;
+				border: none;
+				font-size: 1.5em;
+				cursor: pointer;
+				padding: 0 4px;
+			}
+			body.dark-mode {
+				background-color: #121212;
+				color: #ffffff;
+			}
+			body.dark-mode a {
+				color: #a78bfa;
+			}
+			body.dark-mode nav {
+				background-color: #1e1e1e;
+			}
+		</style>
+	</head>
+	<body>
+		<!--Dark Mode Toggle Bar-->
+		<div id="dark-mode-bar">
+			<button id="dark-mode-toggle" title="Toggle Dark Mode">🌙</button>
+		</div>
+		<h1>
+			Welcome to Brittanys' World!
+		</h1>
+		<header>
+			<nav> 
+				<ul>
+					<li><a href="About.html">About</a></li>
+					<li><a href="Projects.html">Projects</a></li>
+					<li><a href="Contact.html">Contact</a></li>
+				</ul>
+			</nav>
+		</header>
+		 <article>
+            <h2>
+                About the Creator
+            </h2>
+            <p>My name is Brittany Kelly, born and raised in Charleston, South Carolina.
+                I am currently a student at ECPI University majoring Computer and Information
+                Science in Software Development and Coding. I already knew a few things about
+                computers and very little about coding. Creating this portfolio is my way of 
+                sharing what I have learned, built and designed.</p>
+            <p>My page is to also let you in my world of technology as a coder and artist with
+                many skills being implemented into practice. I enjoy merging art and technology 
+                together, creating something new or transforming an existing creating into a 
+                revamped look.</p>
+            <p>Education: Associates in Art, Associates in Applied Science in Business Administration
+                 - Marketing, Bachelors of Science in Computer and Science - Software Development and
+                  Coding (pending)</p>
+            <p>Hobbies: gaming, crotcheting, reading, shipping, road trips.</p>   
+			<!--Skills List-->
+			<h3>Skills and Technologies</h3>
+			<ul id="skills-list">
+			</ul>
+			<!--
+			Featured Content Section:
+				University Resources:
+					Link to ECPI program home page will be added 
+				Personal Project
+					Links my personal projects and GitHub
+			-->
+			<section id="featured-content">
+				<h2>Featured Content</h2>
+
+				<!--University Resources-->
+				<div>
+					<h3>University Resources</h3>
+					<ul>
+						<li>
+							<a href="https://catalog.ecpi.edu/programs/oImemrmD5lKFTyG83Xd9/overview-aoYks"
+								target="_blank">
+								ECPI - BS in Software Development and Coding</a>
+						</li>
+						<li>
+							<a href="https://chsn.ecpi.net/#" target="_blank">
+								ECPI University Home Page
+							</a>
+						</li>
+					</ul>
+				</div>
+				<!--
+				Personal Projects
+				Links to GitHub projects-->
+				<div>
+					<h3>
+						Personal Projects
+					</h3>
+					<!--Calculator Brain-->
+					<a href="https://github.com/Gr33nFariry/SDC230L" target="_blank">
+						<img src="https://opengraph.githubassets.com/1/Gr33nFariry/SDC230L"
+							alt="Calculator Brain GitHub project">
+					</a>
+				</div>
+			</section>
+			<h3>
+                Sneak Peak into the Projects
+            </h3>
+            <a href="RolodexList.com"></a>
+				<!--<img src="" alt="RolodexList"-->
+            <p>My first project is using a programming language of Java.
+                This project was a 5 week project creating a Rolodex/Contact
+                List.
+            </p>
+            <a href="DigitalLibrary.com"></a>
+				<!--<img src="" alt="Digital Library"-->
+            <p>My second project is using Java creating a pragram where I am an owner of a bookstore
+				where customers can rent and buy books, leave reviews, etc. This project was a 5
+				project, learning to structure, design and implement new code that allows the user
+				to interact (adding, deleting and updating.)
+			</p>
+            <a href="CalculatorBrain.com">
+				<img src="https://github.com/Gr33nFariry/SDC230L.git" alt="Calculator Brain">
+			</a>
+            <p>My third project is using Java to creating a calculator that will
+                memorize the users inputs and calculations. This project was a 5 week
+                project due to making sure that my structure for the calculator were 
+                functioning properly, but also implementing other structures where the 
+                user can see their saved inputs. 
+            </p>      
+			<h4>
+                Contact
+            </h4>
+            <p>You may contact me:</p>
+            <p>Call: 1-800-456-9871</p>
+            <p>Email: brikel8322@students.ecpi.edu</p> 
+			<p>Send me a message: 
+				<form>
+					<label for="name">
+					Name
+					<input type="text" id="name" class="clear"/>
+					</label>
+					<label for="address">
+					Address
+					<input type="text" id="address" class="clear" />
+					</label>
+					<label for="subject">
+					Subject
+					<input type="text" id="subject" class="clear" />
+					</label>
+					<label for="message">
+					Message
+					<input type="text" id="message" class="clear"/>
+					</label>
+					<!--submit button-->
+					<input type="submit" id="submit" value="Submit" />
+				</form>
+			</p>              
+        </article>
+		<script src = "UserInteraction.js"> </script>
+	</body>
+</html>
