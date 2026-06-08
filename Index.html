@@ -11,8 +11,59 @@
 		<meta charset="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <title>Brittanys' Portfolio</title>
+		<style>
+			/*
+			Dark Mode Style
+			Toggled on <body> by UserInteraction.js using classList.toggle().*/
+			#dark-mode-bar button {
+				background: none;
+				border: none;
+				font-size: 1.5em;
+				cursor: pointer;
+				padding: 0 4px;
+			}
+			body.dark-mode {
+				background-color: #121212;
+				color: #ffffff;
+			}
+			body.dark-mode a {
+				color: #a78bfa;
+			}
+			body.dark-mode nav {
+				background-color: #1e1e1e;
+			}
+			/* Featured Content Section Styling */
+			#featured-content {
+				border: 2px solid #4f46e5;
+				border-radius: 8px;
+				padding: 16px;
+				background-color: #f5f3ff;
+				font-size: 1.05em;
+				color: #1e1b4b;        /* dark indigo — readable on light purple */
+			}
+
+			body.dark-mode #featured-content {
+				background-color: #1e1b4b;   /* dark indigo background */
+				border-color: #a78bfa;       /* softer purple border */
+				color: #e0e7ff;              /* light lavender text */
+			}
+
+			body.dark-mode #featured-content h2,
+			body.dark-mode #featured-content h3 {
+				color: #c4b5fd;              /* purple-tinted headings in dark mode */
+			}
+			/* Disabled submit button while message is sending */
+			#submit:disabled {
+				opacity: 0.5;
+				cursor: not-allowed;
+			}
+		</style>
 	</head>
 	<body>
+		<!--Dark Mode Toggle Bar-->
+		<div id="dark-mode-bar">
+			<button id="dark-mode-toggle" title="Toggle Dark Mode">🌙</button>
+		</div>
 		<h1>
 			Welcome to Brittanys' World!
 		</h1>
@@ -42,6 +93,50 @@
                  - Marketing, Bachelors of Science in Computer and Science - Software Development and
                   Coding (pending)</p>
             <p>Hobbies: gaming, crotcheting, reading, shipping, road trips.</p>   
+			<!--Skills List-->
+			<h3>Skills and Technologies</h3>
+			<ul id="skills-list">
+			</ul>
+			<!--
+			Featured Content Section:
+				University Resources:
+					Link to ECPI program home page will be added 
+				Personal Project
+					Links my personal projects and GitHub
+			-->
+			<section id="featured-content">
+				<h2>Featured Content</h2>
+
+				<!--University Resources-->
+				<div>
+					<h3>University Resources</h3>
+					<ul>
+						<li>
+							<a href="https://catalog.ecpi.edu/programs/oImemrmD5lKFTyG83Xd9/overview-aoYks"
+								target="_blank">
+								ECPI - BS in Software Development and Coding</a>
+						</li>
+						<li>
+							<a href="https://chsn.ecpi.net/#" target="_blank">
+								ECPI University Home Page
+							</a>
+						</li>
+					</ul>
+				</div>
+				<!--
+				Personal Projects
+				Links to GitHub projects-->
+				<div>
+					<h3>
+						Personal Projects
+					</h3>
+					<!--Calculator Brain-->
+					<a href="https://github.com/Gr33nFariry/SDC230L" target="_blank">
+						<img src="https://opengraph.githubassets.com/1/Gr33nFariry/SDC230L"
+							alt="Calculator Brain GitHub project">
+					</a>
+				</div>
+			</section>
 			<h3>
                 Sneak Peak into the Projects
             </h3>
