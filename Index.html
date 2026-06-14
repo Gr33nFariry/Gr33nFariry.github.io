@@ -57,9 +57,99 @@
 				opacity: 0.5;
 				cursor: not-allowed;
 			}
+			/* Welcome Modal */
+			#welcome-modal-overlay {
+				position: fixed;
+				inset: 0;
+				background-color: rgba(0, 0, 0, 0.55);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				z-index: 1000;
+			}
+			#welcome-modal {
+				background: #ffffff;
+				border-radius: 12px;
+				padding: 36px 40px;
+				max-width: 420px;
+				width: 90%;
+				box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+				text-align: center;
+				font-family: inherit;
+			}
+			#welcome-modal h2 {
+				margin: 0 0 8px;
+				color: #4f46e5;
+				font-size: 1.5em;
+			}
+			#welcome-modal p {
+				color: #374151;
+				margin: 0 0 20px;
+				line-height: 1.6;
+			}
+			#welcome-modal label {
+				display: block;
+				text-align: left;
+				font-size: 0.9em;
+				color: #374151;
+				margin-bottom: 4px;
+			}
+			#welcome-modal input[type="text"] {
+				width: 100%;
+				padding: 8px 12px;
+				border: 1px solid #c4b5fd;
+				border-radius: 6px;
+				font-size: 1em;
+				margin-bottom: 20px;
+				box-sizing: border-box;
+				outline: none;
+			}
+			#welcome-modal input[type="text"]:focus {
+				border-color: #4f46e5;
+				box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+			}
+			#modal-close-btn {
+				background-color: #4f46e5;
+				color: #ffffff;
+				border: none;
+				border-radius: 6px;
+				padding: 10px 28px;
+				font-size: 1em;
+				cursor: pointer;
+				transition: background-color 0.2s;
+			}
+			#modal-close-btn:hover {
+				background-color: #4338ca;
+			}
+			body.dark-mode #welcome-modal {
+				background: #1e1e1e;
+				color: #e0e7ff;
+			}
+			body.dark-mode #welcome-modal p {
+				color: #c4b5fd;
+			}
+			body.dark-mode #welcome-modal label {
+				color: #c4b5fd;
+			}
+			body.dark-mode #welcome-modal input[type="text"] {
+				background: #2d2d2d;
+				color: #e0e7ff;
+				border-color: #a78bfa;
+			}
 		</style>
 	</head>
 	<body>
+		<!--Welcome Modal-->
+		<div id="welcome-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+			<div id="welcome-modal">
+				<h2 id="modal-title">👋 Welcome!</h2>
+				<p>This page is a <strong>work in progress</strong>.<br>
+				New projects and updates are being added regularly — thanks for stopping by!</p>
+				<label for="modal-name-input">Enter your name (optional):</label>
+				<input type="text" id="modal-name-input" placeholder="Your name..." />
+				<button id="modal-close-btn">Let me in!</button>
+			</div>
+		</div>
 		<!--Dark Mode Toggle Bar-->
 		<div id="dark-mode-bar">
 			<button id="dark-mode-toggle" title="Toggle Dark Mode">🌙</button>
@@ -187,9 +277,13 @@
 					<input type="text" id="message" class="clear"/>
 					</label>
 					<!--submit button-->
-					<input type="submit" id="submit" value="Submit" />
-				</form>
-			</p>              
+					<input
+						type="submit"
+						id="submit"
+						value="Submit"
+						title="Click to send your message!"
+					/>
+				</p>              
         </article>
 		<script src = "UserInteraction.js"> </script>
 	</body>

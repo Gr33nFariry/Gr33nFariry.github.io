@@ -3,20 +3,61 @@ classList.toggle("dark-mode") on <body>:
     Adds "dark-mode" if it isn't there -> dark theme
     Removes "dark-mode" if it is there -> light theme */
 //Dark Mode checkbox
+// Dark Mode Toggle
 const darkModeToggle = document.getElementById("dark-mode-toggle");
-//Listens for change event
-darkModeToggle.addEventListener("click", function() {
-    //Toggles dark-mode class on & off the body
+// Check localStorage when page loads
+const darkModeEnabled = localStorage.getItem("darkMode");
+if (darkModeEnabled === "true") {
+    document.body.classList.add("dark-mode");
+    darkModeToggle.textContent = "☀️";
+} else {
+    darkModeToggle.textContent = "🌙";
+}
+// Listen for button click
+darkModeToggle.addEventListener("click", function () {
     document.body.classList.toggle("dark-mode");
-    if (document.body.classList.contains("dark-mode")) {
+    // Save preference
+    const isDarkMode = document.body.classList.contains("dark-mode");
+    localStorage.setItem("darkMode", isDarkMode);
+    // Update icon
+    if (isDarkMode) {
         darkModeToggle.textContent = "☀️";
     } else {
-        darkModeToggle.textContent = "🌙"
+        darkModeToggle.textContent = "🌙";
     }
 });
-//Adds users name on the webpage 
-const userName = prompt("Welcome! Please enter your name to enter:")
-document.getElementById("name").value=userName
+// Welcome Modal
+let userName = "";
+
+const modalOverlay   = document.getElementById("welcome-modal-overlay");
+const modalCloseBtn  = document.getElementById("modal-close-btn");
+const modalNameInput = document.getElementById("modal-name-input");
+
+function closeModal() {
+    // Grab whatever name the user typed (may be empty)
+    userName = modalNameInput.value.trim();
+
+    // Pre-fill the contact form's Name field if a name was given
+    const contactName = document.getElementById("name");
+    if (contactName && userName !== "") {
+        contactName.value = userName;
+    }
+
+    // Update the page heading with their name (same logic as before)
+    const mainHeading = document.querySelector("h1");
+    if (mainHeading && userName !== "") {
+        mainHeading.textContent = "Welcome to Brittany's World, " + userName + "!";
+    }
+
+    // Hide the modal
+    modalOverlay.style.display = "none";
+}
+// Close when the button is clicked
+modalCloseBtn.addEventListener("click", closeModal);
+// Also close if the user presses Enter in the name field
+modalNameInput.addEventListener("keydown", function(e) {
+    if (e.key === "Enter") closeModal();
+});
 //Skills List Array
 //Array of skills
 const skills = [
