@@ -58,6 +58,94 @@ modalCloseBtn.addEventListener("click", closeModal);
 modalNameInput.addEventListener("keydown", function(e) {
     if (e.key === "Enter") closeModal();
 });
+// Project Objects
+const project1 = {
+    title: "Rolodex Contact List",
+    summary: "A Java application that allows users to create, store, and manage contact information using a digital Rolodex system.",
+    imageUrl: "https://via.placeholder.com/150",
+    repository: "https://github.com/Gr33nFariry/SDC330L_v2.git"
+};
+
+const project2 = {
+    title: "Digital Library",
+    summary: "A bookstore management application that allows customers to rent books, purchase books, and leave reviews.",
+    imageUrl: "https://via.placeholder.com/150",
+    repository: "https://github.com/Gr33nFariry/SDC330L.git"
+};
+
+const project3 = {
+    title: "Calculator Brain",
+    summary: "A Java calculator that performs calculations and stores previous user inputs and results for future reference.",
+    imageUrl: "https://opengraph.githubassets.com/1/Gr33nFariry/SDC230L",
+    repository: "https://github.com/Gr33nFariry/SDC230L"
+};
+// Array of Project Objects
+const projects = [
+    project1,
+    project2,
+    project3
+];
+// Select the project section
+const projectsContainer = document.getElementById("projects-container");
+
+// Loop through the array and create elements
+projects.forEach(function(project) {
+
+    // Project card container
+    const projectCard = document.createElement("div");
+    projectCard.classList.add("project-card");
+
+    // Project title
+    const title = document.createElement("h4");
+    title.textContent = project.title;
+
+    // Project summary
+    const summary = document.createElement("p");
+    summary.textContent = project.summary;
+
+    // Project image
+    const image = document.createElement("img");
+    image.src = project.imageUrl;
+    image.alt = project.title;
+    image.width = 200;
+
+    // Repository link
+    const link = document.createElement("a");
+    link.href = project.repository;
+    link.textContent = "View Repository";
+    link.target = "_blank";
+
+    // Add elements to the card
+    projectCard.appendChild(title);
+    projectCard.appendChild(image);
+    projectCard.appendChild(summary);
+    projectCard.appendChild(link);
+
+    // Add card to page
+    projectsContainer.appendChild(projectCard);
+});
+// Check if project data already exists
+let storedProjects = sessionStorage.getItem("projects");
+
+if (storedProjects === null) {
+    // No data exists yet
+
+    // Convert the projects array into a JSON string
+    const projectsString = JSON.stringify(projects);
+
+    // Store it in sessionStorage
+    sessionStorage.setItem("projects", projectsString);
+
+    console.log("Project data stored in sessionStorage.");
+} else {
+    // Data exists
+
+    // Convert the JSON string back into a JavaScript array
+    const parsedProjects = JSON.parse(storedProjects);
+
+    console.log("Project data retrieved from sessionStorage:");
+    console.log(parsedProjects);
+}
 //Skills List Array
 //Array of skills
 const skills = [
@@ -195,20 +283,4 @@ if (featuredSection) {
     // Styling is handled in CSS to support both light and dark mode
     const featuredSection = document.getElementById("featured-content");
 }
-//Submit function
-function submit(event) {
-    //Page refresh prevented
-    event.preventDefault();
-    //Reads name of user in Name feild
-    var userName = nameInput.value.trim();
-    //Displays confirmation with name of user
-    if (userName !== "") {
-        alert("Thank you, " + userName + " , your message has been sent")
-    } else {
-        alert("Your message has been sent!")
-    }
-    //Clears form after submission
-    const fields = document.querySelectorAll(".clear");
-    fields.forEach(field => field.value = "");
-}
-submitButton.addEventListener("click", submit);
+
